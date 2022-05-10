@@ -1,10 +1,8 @@
-$login-padding: 0 72px;
-
 .login-wrap {
   height: 100%;
   width: 100%;
   // background-color: #f6f6f6;
-  background-color: #f7f9fc;
+  background-color: #efefef;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,19 +13,20 @@ $login-padding: 0 72px;
   }
 
   .form-header {
-    background-color: #2f65cb;
-    height: 117px;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    text-align: center;
     .logo {
       display: inline-block;
-      width: 302px;
-      height: 72px;
-      background: url(../image/icon_login_logo.png) no-repeat 50% 50%;
+      width: 210px;
+      height: 120px;
+      background: url(../image/login_logo.gif) no-repeat 50% 50%;
+      background-size: 100% auto;
       @include textIndent();
+      margin: 50px 0 10px 0;
+    }
+    .title{
+      font-size: 20px;
+      font-weight: 500;
+      color: #646464;
     }
   }
 
@@ -36,21 +35,14 @@ $login-padding: 0 72px;
     justify-content: center;
     flex-direction: column;
 
-    .login-tit {
-      text-align: center;
-      font-size: 40px;
-      color: #444444;
-      height: 124px;
-      background: url(../image/icon_login_txt.png) no-repeat 50% 60%;
-    }
-
     .login-inputs {
       padding: $login-padding;
       display: flex;
       flex-direction: column;
-
+      margin-top: 70px;
       .input-id,
-      .input-password {
+      .input-password,
+      .input-auth {
         width: 100%;
         position: relative;
 
@@ -59,7 +51,7 @@ $login-padding: 0 72px;
           width: 21px;
           position: absolute;
           left: 12px;
-          top: 15px;
+          top: 11px;
           transition: all ease 0.4s;
         }
       }
@@ -74,11 +66,11 @@ $login-padding: 0 72px;
       }
 
       .input-password {
-        margin-top: 20px;
+        // margin-top: 20px;
       }
 
       .input-password .icon {
-        top: 13px;
+        top: 11px;
         height: 25px;
         background: url(../image/icon_pass.png) no-repeat 0 0;
 
@@ -87,43 +79,67 @@ $login-padding: 0 72px;
         }
       }
 
-      input {
-        border: none;
-        border-bottom: 1px solid #dbdbdb;
-        height: 48px;
-        line-height: 48px;
-        width: 100%;
-        padding-left: 50px;
-        box-sizing: border-box;
+      .input-auth .icon {
+        top: 11px;
+        width: 20px;
+        height: 24px;
+        background: url(../image/icon_auth.png) no-repeat 0 0;      
+      }
 
+      input {        
+        border: 1px solid #cfcfcf;
+        height: 46px;
+        line-height: 46px;
+        width: 100%;
+        padding-left: 42px;
+        box-sizing: border-box;
+        font-size: 15px;
+        border-radius: 5px;
         &:first-child {
-          margin-bottom: 15px;
+          margin-bottom: 10px;
         }
 
         &:focus {
-          border-bottom: 1px solid #4782da;
+          border: 1px solid #4782da;
         }
+      }
+      .btn-search{
+        display: inline-block;
+        height: 46px;
+        padding: 0 17px;
+        // background-color: #2ab0b9;
+        // border: 1px solid #1b929b;
+        background-color: #6b6b6b;
+          border: 1px solid #5a5a5a;
+        box-sizing: border-box;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 15px;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
       }
     }
   }
 
   .check-area {
-    padding: 5px 72px 0 72px;
+    padding: $login-padding;
   }
 
   .login-btns {
-    padding: 0 72px;
+    padding: $login-padding;
 
     .btn-login {
       display: block;
       height: 48px;
-      border-radius: 48px;
-      background-color: #22a0aa;
+      border-radius: 5px;      
+      background: #4782da;
+      border: 1px solid #3066b6;
       color: #fff;
       font-size: 18px;
       font-weight: 400;
       width: 100%;
-      margin-top: 27px;
+      margin-top: 18px;
 
       &:disabled {
         opacity: 0.4;
@@ -132,9 +148,32 @@ $login-padding: 0 72px;
     }
   }
 
-  .check-area {
-    text-align: right;
+.form-footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: $login-padding;
+  box-sizing: border-box;
+  .info{
+    font-size: 13px;
+    text-align: center;
+    line-height: 18px;
+    color: #646464;
+    margin-bottom: 20px;
   }
+  .copyright{
+    text-align: center;
+    font-size: 12px;
+    color: #8b8b8b;
+    padding: 10px 0 15px 0;
+    border-top: 1px solid rgb(219, 219, 219);
+  }  
+}
+
+  // .check-area {
+  //   text-align: right;
+  // }
 
   .checkbox-wrap input[type="checkbox"]+label {
     font-size: 14px;

@@ -54,7 +54,7 @@ class CustomTextRender {
       grid.setValue(rowKey, columnInfo.name, el.value);
       console.log('change', rowKey, columnInfo.name, el.value);
     });
-
+    console.log(this.el, el);
     this.el = el;
 
     this.render(props);
@@ -75,13 +75,15 @@ class CustomTextRender {
 
 class CustomRadioRender {
   constructor(props) {
+    const label = document.createElement('label');
     const el = document.createElement('input');
+    label.appendChild(el);
     const { rowKey } = props;
     console.log('props=', props);
 
+    label.classList.add('gridRadio');
     el.type = 'radio';
     el.name = 'radioSelect';
-    el.value = rowKey;
     el.disabled = false;
 
     el.addEventListener('mousedown', ev => {
@@ -94,13 +96,14 @@ class CustomRadioRender {
       window.app.$children[0].$children[1].onTest();
     });
 
+    this.label = label;
     this.el = el;
 
     this.render(props);
   }
 
   getElement() {
-    return this.el;
+    return this.label;
   }
 
   getValue() {
@@ -218,6 +221,126 @@ export default {
           release: '2016.03.26',
           genre: 'Pop5',
         },
+        {
+          name: 'Beautiful Lies1',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop1',
+        },
+        {
+          name: 'Beautiful Lies2',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop2',
+        },
+        {
+          name: 'Beautiful Lies3',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop3',
+        },
+        {
+          name: 'Beautiful Lies4',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop4',
+        },
+        {
+          name: 'Beautiful Lies5',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop5',
+        },
+        {
+          name: 'Beautiful Lies1',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop1',
+        },
+        {
+          name: 'Beautiful Lies2',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop2',
+        },
+        {
+          name: 'Beautiful Lies3',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop3',
+        },
+        {
+          name: 'Beautiful Lies4',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop4',
+        },
+        {
+          name: 'Beautiful Lies5',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop5',
+        },
+        {
+          name: 'Beautiful Lies1',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop1',
+        },
+        {
+          name: 'Beautiful Lies2',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop2',
+        },
+        {
+          name: 'Beautiful Lies3',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop3',
+        },
+        {
+          name: 'Beautiful Lies4',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop4',
+        },
+        {
+          name: 'Beautiful Lies5',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop5',
+        },
+        {
+          name: 'Beautiful Lies1',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop1',
+        },
+        {
+          name: 'Beautiful Lies2',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop2',
+        },
+        {
+          name: 'Beautiful Lies3',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop3',
+        },
+        {
+          name: 'Beautiful Lies4',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop4',
+        },
+        {
+          name: 'Beautiful Lies5',
+          artist: 'Birdy',
+          release: '2016.03.26',
+          genre: 'Pop5',
+        },
       ];
     },
   },
@@ -283,5 +406,15 @@ export default {
 <style>
 .content-wrap {
   height: 500px;
+}
+.tui-grid-body-area {
+  height: calc(100vh - 41px) !important;
+}
+.gridRadio {
+  display: block;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

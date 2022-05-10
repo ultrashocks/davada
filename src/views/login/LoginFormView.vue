@@ -8,7 +8,6 @@
         </div>
         <div class="form-body">
           <validation-observer ref="validator">
-            <div class="login-tit"></div>
             <div class="login-inputs">
               <div class="input-id">
                 <span class="icon"></span>
@@ -23,6 +22,7 @@
                     autocomplete="off"
                   />
                 </validation-provider>
+                <button type="button" class="btn-search">검색</button>
               </div>
               <div class="input-password">
                 <span class="icon"></span>
@@ -38,17 +38,39 @@
                   />
                 </validation-provider>
               </div>
+              <div class="input-auth">
+                <span class="icon"></span>
+                <validation-provider
+                  rules="required|min:4|max:20|alpha_num"
+                  name="아이디"
+                >
+                  <input
+                    type="text"
+                    placeholder="아이디"
+                    v-model="userId"
+                    autocomplete="off"
+                  />
+                </validation-provider>
+                <button type="button" class="btn-search">인증요청</button>
+              </div>
             </div>
             <div class="check-area">
               <span class="checkbox-wrap">
                 <input type="checkbox" id="saveUserId" />
-                <label for="saveUserId">아이디 저장</label>
+                <label for="saveUserId">아이디/패스워드 저장</label>
               </span>
             </div>
             <div class="login-btns">
               <button type="submit" class="btn-login">로그인</button>
             </div>
           </validation-observer>
+        </div>
+        <div class="form-footer">
+          <div class="info">
+            업체코드, 비밀번호를 모르시면,<br />
+            주문하시는 주류도매 업체에 문의바랍니다.
+          </div>
+          <div class="copyright">Copyright 다바다. All right reserved.</div>
         </div>
       </form>
     </div>
@@ -75,17 +97,11 @@ export default {
     },
     async submitForm() {
       console.log('submitForm');
-      //유효성 검사
+      /* //유효성 검사
       if ((await this.$vxForm.isValid(this.$refs.validator)) === false) {
         return;
       }
       //인증 요청
-      /* let authParam = this.$vxForm.getValues(this, {
-        include: ['userId', 'userPwd'],
-        hash: 'userPwd',
-      }); 
-      let res = await this.$vxHttp.post('/api/auth', authParam);
-      */
       let res = await this.$vxHttp.post('/api/auth', {
         userId: this.userId,
         userPwd: this.userPwd,
@@ -97,7 +113,7 @@ export default {
       }
       //성공
       $LogonUser.setUserInfo(res.data);
-      this.saveUserIdCheck(); //로컬스토리지에 아이디 저장 또는 삭제
+      this.saveUserIdCheck(); //로컬스토리지에 아이디 저장 또는 삭제 */
 
       this.$router.push('/main');
     },
