@@ -1,0 +1,44 @@
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 500;
+    opacity: 0.2;
+  }
+  25%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0.2;
+  }
+  75%{
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes rotateArrow{
+   0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes blankAni {
+    0% {opacity:0.4;}
+    50% {opacity:1;}
+    100% {opacity:0.4;}
+}
+
+@keyframes dialogShow {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
